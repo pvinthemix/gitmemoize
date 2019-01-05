@@ -26,6 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>gitToStudying</h1>
         <CardContainer data={this.state.gitData}/>
       </div>
     );
