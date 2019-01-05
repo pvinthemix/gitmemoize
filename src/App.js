@@ -7,16 +7,16 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      gitData: [],
+      gitData: []
     };
   }
 
   componentDidMount() {
     fetch('http://memoize-datasets.herokuapp.com/api/v1/pvGitCommands')
       .then(response => response.json())
-      .then(gitData => {
+      .then(git => {
         this.setState({
-          gitData: gitData.pvGitCommands
+          gitData: git.pvGitCommands
         });
       })
       .catch(error => console.log(error));
@@ -24,10 +24,11 @@ export default class App extends Component {
 
 
   render() {
+    console.log(this.state.gitData);
     return (
       <div className="App">
         <h1>gitToStudying</h1>
-        <CardContainer data={this.state.gitData}/>
+        <CardContainer dataStuff={this.state.gitData}/>
       </div>
     );
   }
