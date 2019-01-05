@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
+import './App.scss';
 
-import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      gitData: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://memoize-datasets.herokuapp.com/api/v1/pvGitCommands')
+      .then(response => response.json())
+      .then(gitData => {
+        this.setState({
+          gitData: gitData.pvGitCommands
+        });
+      })
+      .catch(error => console.log(error));
+  }
+
+
   render() {
     return (
       <div className="App">
-        <p>
-          <h1></h1>
-        sdfsdf
-        fd    qasasd
-        </p>
+        <h1>Hello</h1>
       </div>
     );
   }
 }
-
-export default App;
