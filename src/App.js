@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import CardContainer from './CardContainer.js';
 
 
 export default class App extends Component {
@@ -25,7 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello</h1>
+        <CardContainer data={this.state.gitData}/>
       </div>
     );
   }
